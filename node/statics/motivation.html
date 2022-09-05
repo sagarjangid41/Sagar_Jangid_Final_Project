@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="pimg.png" />
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Songs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link href="styles/sidekick.css" rel="stylesheet">
+
+
+
+
+
+  <style>
+ body {
+      /* background-image: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v1059-041c-kv7v7wnb.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=9281c9dc720656a8e68d0f75f2a22e40'); */
+      /* background-repeat: no-repeat; */
+      /* background-attachment: fixed; */
+      /* background-size: cover;
+      /* background-blend-mode: soft-light; */
+      background-color: rgba(240, 237, 235, 0.7);
+      
+    }
+
+    .list {
+      border-top: 1px solid rgb(161, 159, 159);
+      list-style-type: none;
+      text-align: center;
+      margin-top: 5px;
+      font-size: 20px;
+      font-family: bold;
+    }
+
+    audio {
+      height: 60px;
+      width: 85%; 
+
+    }
+
+    .footer {
+      position: fixed;
+      margin-left: 13.6%;
+      bottom: 0;
+      width: 100%;
+      background-color: aliceblue;
+      border: rgb(162, 161, 161) 6px solid;
+    }
+  </style>
+  <script>
+    var api_url = window.location.href
+    var url = new URL(api_url);
+    var sname = url.searchParams.get("sname");
+    var simg = url.searchParams.get("simg");
+    var song = url.searchParams.get("song");
+    console.log(simg)
+    document.getElementById("simg").src = simg
+    document.getElementById("sname").textContent = sname
+    document.getElementById("song").src = song
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgba(255, 255, 255, 0.83); box-shadow: 5px 5px rgb(241, 237, 237) ;">
+    <a class="navbar-brand" style="font-size: 45px; color: red; font-family: bold;" href="http://localhost/desktop"><strong>Lets! Play Beat</strong> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" style="font-size: 25px; color: red;">
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost/desktop"><strong>Home</strong>  <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"  href="http://localhost:3000/"><strong>About Us</strong>  <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/Latest"><strong>Latest Songs</strong>  <span class="sr-only">(current)</span></a>
+        </li>
+      
+      </ul>
+      <% if(name!==null){ %>
+        <!-- <button class="btn  btn-secondary" onclick="location.href = 'http://localhost/login';" style="font-size: 20px; font-family: bold; color: whitesmoke;" type="button"><b> Logout </b></button> -->
+        <a href="/profile" class="header-wrapicon1 dis-block" style="margin-right: 20px ;">
+          <img src="icon-header-01.png" class="header-icon1" alt="ICON">
+        </a>	
+        <button type="button" onclick="location.href = 'http://localhost/login';" class="btn btn-outline-secondary">Logout</button>
+
+        <% } else {%>  
+    <!-- <button class="btn  btn-secondary" onclick="location.href = 'http://localhost/login';" style="font-size: 20px; font-family: bold; color: whitesmoke;" type="button"><b>LogIn</b></button> -->
+    <button type="button" onclick="location.href = 'http://localhost/login';" class="btn btn-outline-secondary">LogIn</button>
+    <button type="button" onclick="location.href = 'http://localhost/register';" class="btn btn-outline-secondary" style="margin-left: 5px;">Register</button>
+
+    <% }%>
+    </div>
+  </nav>
+  
+  
+  <div style="background-color: rgba(184, 182, 182, 0.7) ;border: rgb(162, 161, 161) 6px solid; float:left;">
+    <img src="https://assets.entrepreneur.com/content/3x2/2000/20170927033915-Untitleddesign.jpeg" alt="coming"
+      width="200px" style="border-radius: 100%; margin-bottom: 20px;">
+
+    <li class="list"><a style="color: black;"
+        href="http://localhost/motivation?sname=Parwa Nahi&song=song.mp3&simg=parwa.jpg">Parwah Nahi</a> </li>
+    <li class="list"><a style="color: black;"
+        href="http://localhost/motivation?sname=Kar Har Maidan Fateh&song=karhar.mp3&simg=karhar.jpg">Kar Har
+        Maidaan Fateh</a></li>
+    <li class="list"><a style="color: black;"
+        href="http://localhost/motivation?sname=Besabriyaan&song=BESABRIYAAN.mp3&simg=Besabriyaan.jpg">Besabriyaan</a>
+    </li>
+    <li style="margin-top: 600px; list-style-type:none;"></li>
+
+  </div>
+
+  
+  <div id="head" style="text-align: center; ">
+    <p style="font-size: 70px;  font-family: bold; background-color: rgba(184, 182, 182, 0.7);">
+      Motivation
+    </p>
+  </div>
+
+
+  <div class="card" style="width: 23rem;  margin: auto; background-color: rgba(184, 182, 182, 0.7);   border :  rgb(162, 161, 161) 6px solid;border-radius: 5%; box-shadow: 5px 5px rgb(162, 161, 161) ; ">
+    <img id="simg" class="card-img-top" src="parwa.jpg">
+    <div class="card-body">
+      <h5 id="sname" style="font-size: 25px;  font-family: bold;" class="card-title">Ab jo bhi ho Parwah Nahi </h5>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <audio id="player" controls autoplay loop controlsList="nodownload noplaybackrate">
+      <source id="song" src="song.mp3" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+  </div>
+
+  </style>
+  <script>
+    var api_url = window.location.href
+    var url = new URL(api_url);
+    var sname = url.searchParams.get("sname");
+    var simg = url.searchParams.get("simg");
+    var song = url.searchParams.get("song");
+    console.log(simg)
+    document.getElementById("simg").src = simg
+    document.getElementById("sname").textContent = sname
+    document.getElementById("song").src = song
+  </script>
+
+</body>
+
+</html>

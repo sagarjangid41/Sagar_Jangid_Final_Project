@@ -1,0 +1,185 @@
+<html>
+
+<head>
+    <link rel="icon" href="pimg.png" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function validateForm() {
+            let x = document.forms["swsform"]["lastName"].value;
+            if (x == "") {
+                alert("Last Name must be filled out");
+                document.forms["swsform"]["lastName"].focus();
+                return false;
+            }
+
+            
+            let mno = document.forms["swsform"]["mnumber"].value;
+            var phoneno = /^\d{10}$/;
+            if (mno.match(phoneno)) {
+                return validatemail();
+            }
+            else {
+                alert("Invalid Mobile no.");
+                document.forms["swsform"]["mnumber"].focus();
+                return false;
+            }
+
+
+
+            function validatemail() {
+                let mail = document.forms["swsform"]["email"].value;
+                var mailformat = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+                if (mail.match(mailformat)) {
+                    if (document.forms["swsform"]["accept"].checked() = false) {
+                        alert("mes");
+                        return false;
+                    }
+                }
+                else {
+                    alert("You have entered an invalid email address!");
+                    document.forms["swsform"]["email"].focus();
+
+                    return false;
+                }
+            }
+
+        }
+    </script>
+
+
+    <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+    <title></title>
+</head>
+
+<body>
+
+    
+
+<div class="container" style="border: 2px black solid; margin:auto; margin-top: 10px;">
+    <div>
+        <h2 style="color:bg-dark;text-align: center;">Register Form</h2>
+    </div>
+
+
+    <div class="container">
+        <div class="single">
+            <div class="form-container">
+                <form id="swsform" onsubmit="return validateForm()" method="post">
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+
+                            <label class="col-md-3 control-lable" for="firstName">First Name</label>
+                            <div class="col-md-9">
+                                <input type="text" path="firstName" id="firstName" class="form-control input-sm"
+                                    required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-3 control-lable" for="lastName">Last Name</label>
+                            <div class="col-md-9">
+                                <input type="text" path="lastName" id="lastName" class="form-control input-sm" required/>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-3 control-lable" for="mnumber">Mobile Number</label>
+                            <div class="col-md-9">
+                                <input type="text" path="mnumber" id="mnumber" class="form-control input-sm" required/>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-3 control-lable" for="sex">Gender</label>
+                            <div class="col-md-9" class="form-control input-sm">
+                                <div class="radios">
+                                    <label for="radio-01" class="label_radio">
+                                        <input type="radio" name="gender"><span> Male</span>
+                                    </label>
+                                    <label for="radio-02" class="label_radio">
+                                        <input type="radio" name="gender"><span> Female</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-3 control-lable" for="dob">Date of birth</label>
+                            <div class="col-md-9">
+                                <input type="text" path="dob" id="dob" class="form-control input-sm" required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-3 control-lable" for="email">Email</label>
+                            <div class="col-md-9">
+                                <input type="text" path="email" id="email" class="form-control input-sm" required/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-3 control-lable" for="country">Course</label>
+                            <div class="col-md-9">
+                                <select path="country" id="country" class="form-control input-sm">
+                                    <option value="">Select</option>
+                                    <option value="">M.Tech</option>
+                                    <option value="">B.Tech</option>
+                                    <option value="">MBA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group col-md-12">
+
+                            <input type="checkbox" id="accept">
+                            <label for="accept"> Accept T&C.</label>
+                            <a href="#"> Terms and conditions.</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-actions floatRight">
+                            <input type="submit" value="Register" class="btn btn-primary btn-sm">
+                </form>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+</div>
+</body>
+
+
+</html>
